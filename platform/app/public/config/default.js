@@ -120,9 +120,10 @@ window.config = {
             configuration: {
                 friendlyName: 'AllClinic Lite',
                 name: 'DCM4CHEE',
-                qidoRoot: 'http://localhost:8080/api/protected/dicom-viewer/pacs/rs',
-                wadoRoot: 'http://localhost:8080/api/protected/dicom-viewer/pacs/wado',
-                qidoSupportsIncludeField: false,
+                qidoRoot: '/api/protected/dicom-viewer/pacs/rs',
+                wadoRoot: '/api/protected/dicom-viewer/pacs/rs',
+                wadoUriRoot: '/api/protected/dicom-viewer/pacs/wado',
+                qidoSupportsIncludeField: true,
                 supportsReject: true,
                 supportsStow: true,
                 imageRendering: 'wadors',
