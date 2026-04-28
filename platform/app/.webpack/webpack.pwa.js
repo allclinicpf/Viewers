@@ -16,7 +16,7 @@ const DIST_DIR = path.join(__dirname, '../dist');
 const PUBLIC_DIR = path.join(__dirname, '../public');
 // ~~ Env Vars
 const HTML_TEMPLATE = process.env.HTML_TEMPLATE || 'index.html';
-const PUBLIC_URL = process.env.PUBLIC_URL || '/';
+const PUBLIC_URL = process.env.PUBLIC_URL || '/ohif/';
 const APP_CONFIG = process.env.APP_CONFIG || 'config/default.js';
 
 // proxy settings

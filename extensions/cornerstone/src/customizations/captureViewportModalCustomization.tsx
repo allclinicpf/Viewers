@@ -16,6 +16,7 @@ interface ViewportDownloadFormNewProps {
   onEnableViewport: (element: HTMLElement) => void;
   onDisableViewport: () => void;
   onDownload: (filename: string, fileType: string) => void;
+  onAddKeyImage: (filename: string, fileType: string) => void;
   warningState: { enabled: boolean; value: string };
 }
 
@@ -32,6 +33,7 @@ function ViewportDownloadFormNew({
   onEnableViewport,
   onDisableViewport,
   onDownload,
+  onAddKeyImage,
 }: ViewportDownloadFormNewProps) {
   const [viewportElement, setViewportElement] = useState<HTMLElement | null>(null);
   const [showWarningMessage, setShowWarningMessage] = useState(true);
@@ -138,13 +140,21 @@ function ViewportDownloadFormNew({
               <FooterAction.Secondary onClick={onClose}>
                 {t('Common:Cancel')}
               </FooterAction.Secondary>
-              <FooterAction.Primary
+              <FooterAction.Secondary
                 onClick={() => {
                   onDownload(filename || DEFAULT_FILENAME, fileType);
                   onClose();
                 }}
               >
                 {t('Common:Save')}
+              </FooterAction.Secondary>
+              <FooterAction.Primary
+                onClick={() => {
+                  onAddKeyImage(filename || DEFAULT_FILENAME, fileType);
+                  onClose();
+                }}
+              >
+                Adicionar imagem chave
               </FooterAction.Primary>
             </FooterAction.Right>
           </FooterAction>

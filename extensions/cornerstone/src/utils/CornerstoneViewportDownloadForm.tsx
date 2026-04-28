@@ -230,6 +230,42 @@ const CornerstoneViewportDownloadForm = ({
     downloadUrl(canvas.toDataURL(`image/${fileType}`, 1.0), { filename });
   };
 
+  const handleAddKeyImage = async (baseFilename: string, fileType: string) => {
+    const divForDownloadViewport = document.querySelector(
+      `div[data-viewport-uid="${VIEWPORT_ID}"]`
+    );
+
+    if (!divForDownloadViewport) {
+      console.debug('No viewport found for download');
+      return;
+    }
+
+    const canvas = await html2canvas(divForDownloadViewport as HTMLElement);
+    const filename = `${baseFilename}.${fileType}`;
+    const mimeType = `image/${fileType}`;
+
+    canvas.toBlob(blob => {
+      if (!blob) {
+        console.error('Failed to create image blob for key image');
+        return;
+      }
+
+      window.parent?.postMessage(
+        {
+          type: 'ohif:add-key-image',
+          payload: {
+            filename,
+            blob,
+            viewportId: activeViewportId,
+            width: canvas.width,
+            height: canvas.height,
+          },
+        },
+        '*'
+      );
+    }, mimeType);
+  };
+
   const ViewportDownloadFormNew = customizationService.getCustomization(
     'ohif.captureViewportModal'
   );
@@ -247,6 +283,7 @@ const CornerstoneViewportDownloadForm = ({
       onEnableViewport={handleEnableViewport}
       onDisableViewport={handleDisableViewport}
       onDownload={handleDownload}
+      onAddKeyImage={handleAddKeyImage}
       warningState={warningState}
     />
   );
