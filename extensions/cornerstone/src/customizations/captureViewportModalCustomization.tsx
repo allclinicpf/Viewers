@@ -38,7 +38,7 @@ function ViewportDownloadFormNew({
   const [viewportElement, setViewportElement] = useState<HTMLElement | null>(null);
   const [showWarningMessage, setShowWarningMessage] = useState(true);
   const [filename, setFilename] = useState(DEFAULT_FILENAME);
-  const [fileType, setFileType] = useState('jpg');
+  const [fileType, setFileType] = useState('key');
   const { t } = useTranslation('CaptureViewportModal');
 
   useEffect(() => {
@@ -140,21 +140,13 @@ function ViewportDownloadFormNew({
               <FooterAction.Secondary onClick={onClose}>
                 {t('Common:Cancel')}
               </FooterAction.Secondary>
-              <FooterAction.Secondary
+              <FooterAction.Primary
                 onClick={() => {
-                  onDownload(filename || DEFAULT_FILENAME, fileType);
+                  fileType == 'key' ? onAddKeyImage(filename || DEFAULT_FILENAME, fileType) : onDownload(filename || DEFAULT_FILENAME, fileType);
                   onClose();
                 }}
               >
                 {t('Common:Save')}
-              </FooterAction.Secondary>
-              <FooterAction.Primary
-                onClick={() => {
-                  onAddKeyImage(filename || DEFAULT_FILENAME, fileType);
-                  onClose();
-                }}
-              >
-                Adicionar imagem chave
               </FooterAction.Primary>
             </FooterAction.Right>
           </FooterAction>
