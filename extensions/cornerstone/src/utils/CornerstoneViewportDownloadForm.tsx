@@ -15,7 +15,7 @@ const VIEWPORT_ID = 'cornerstone-viewport-download-form';
 const FILE_TYPE_OPTIONS = [
   {
     value: 'key',
-    label: 'Imagem Chave (Key Image)',
+    label: 'Key Image (Imagem Chave)',
   },
   {
     value: 'jpg',

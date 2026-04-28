@@ -2,7 +2,7 @@
 
 window.config = {
     name: 'config/default.js',
-    routerBasename: '/api/protected/dicom-viewer/ohif',
+    routerBasename: '/ohif/index.html',
     whiteLabeling: {
         createLogoComponentFn: function (React) {
             return React.createElement('div',
