@@ -16,7 +16,7 @@ const DIST_DIR = path.join(__dirname, '../dist');
 const PUBLIC_DIR = path.join(__dirname, '../public');
 // ~~ Env Vars
 const HTML_TEMPLATE = process.env.HTML_TEMPLATE || 'index.html';
-const PUBLIC_URL = process.env.PUBLIC_URL || '/ohif/';
+const PUBLIC_URL = process.env.PUBLIC_URL || '/';
 const APP_CONFIG = process.env.APP_CONFIG || 'config/default.js';
 
 // proxy settings
@@ -131,15 +131,15 @@ module.exports = (env, argv) => {
       ...(IS_COVERAGE
         ? []
         : [
-            new InjectManifest({
-              swDest: 'sw.js',
-              swSrc: path.join(SRC_DIR, 'service-worker.js'),
-              // Need to exclude the theme as it is updated independently
-              exclude: [/theme/],
-              // Cache large files for the manifests to avoid warning messages
-              maximumFileSizeToCacheInBytes: 1024 * 1024 * 50,
-            }),
-          ]),
+          new InjectManifest({
+            swDest: 'sw.js',
+            swSrc: path.join(SRC_DIR, 'service-worker.js'),
+            // Need to exclude the theme as it is updated independently
+            exclude: [/theme/],
+            // Cache large files for the manifests to avoid warning messages
+            maximumFileSizeToCacheInBytes: 1024 * 1024 * 50,
+          }),
+        ]),
     ],
     // https://webpack.js.org/configuration/dev-server/
     devServer: {
