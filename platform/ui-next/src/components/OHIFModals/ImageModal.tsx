@@ -80,7 +80,7 @@ function Filename({ children, className, value, onChange, ...props }: FilenamePr
         {...props}
         className={cn('w-full', className)}
         value={value}
-        onChange={onChange ?? (() => {})}
+        onChange={onChange ?? (() => { })}
       />
     </div>
   );
@@ -96,9 +96,10 @@ interface FiletypeProps {
   className?: string;
   /** Array of file type options */
   options?: Array<{ value: string; label: string }>;
+  noSizing?: boolean;
 }
 
-function Filetype({ selected, onSelect, className, options = [] }: FiletypeProps) {
+function Filetype({ selected, onSelect, className, options = [], noSizing = false }: FiletypeProps) {
   const defaultOptions = [
     { value: 'jpg', label: 'JPG' },
     { value: 'png', label: 'PNG' },
@@ -113,7 +114,7 @@ function Filetype({ selected, onSelect, className, options = [] }: FiletypeProps
     >
       <SelectTrigger
         aria-label="File type"
-        className={cn('w-[5.5rem] sm:w-24', className)}
+        className={!noSizing ? cn('w-[5.5rem] sm:w-24', className) : className}
       >
         <SelectValue />
       </SelectTrigger>
@@ -186,7 +187,7 @@ function ImageSize({
           <span className="text-foreground text-base">{finalWidthLabel}</span>
           <Input
             value={width}
-            onChange={onWidthChange ?? (() => {})}
+            onChange={onWidthChange ?? (() => { })}
             placeholder={finalWidthPlaceholder}
             className="w-20"
             max={maxWidth}
@@ -198,7 +199,7 @@ function ImageSize({
           <span className="text-foreground text-base">{finalHeightLabel}</span>
           <Input
             value={height}
-            onChange={onHeightChange ?? (() => {})}
+            onChange={onHeightChange ?? (() => { })}
             placeholder={finalHeightPlaceholder}
             className="w-20"
             max={maxHeight}

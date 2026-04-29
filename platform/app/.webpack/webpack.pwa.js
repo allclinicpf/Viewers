@@ -61,6 +61,7 @@ module.exports = (env, argv) => {
     entry: {
       app: ENTRY_TARGET,
     },
+    cache: false,
     output: {
       path: DIST_DIR,
       filename: isProdBuild ? '[name].bundle.[chunkhash].js' : '[name].js',

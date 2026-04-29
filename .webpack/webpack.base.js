@@ -92,9 +92,10 @@ module.exports = (env, argv, { SRC_DIR, ENTRY }) => {
       children: false,
       warnings: true,
     },
-    cache: {
-      type: 'filesystem',
-    },
+    cache: false,
+    //cache: {
+    //  type: 'filesystem',
+    //},
     module: {
       noParse: [/(dicomicc)/],
       rules: [

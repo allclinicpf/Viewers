@@ -36,7 +36,7 @@ function ViewportDownloadFormNew({
   onAddKeyImage,
 }: ViewportDownloadFormNewProps) {
   const [viewportElement, setViewportElement] = useState<HTMLElement | null>(null);
-  const [showWarningMessage, setShowWarningMessage] = useState(true);
+  const [showWarningMessage, setShowWarningMessage] = useState(false);
   const [filename, setFilename] = useState(DEFAULT_FILENAME);
   const [fileType, setFileType] = useState('key');
   const { t } = useTranslation('CaptureViewportModal');
@@ -91,6 +91,7 @@ function ViewportDownloadFormNew({
               selected={fileType}
               onSelect={setFileType}
               options={fileTypeOptions}
+              noSizing
             />
           </div>
 
