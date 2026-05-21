@@ -1,8 +1,9 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-  typeof define === 'function' && define.amd ? define(['exports'], factory) :
-  (factory((global.DICOMwebClient = {})));
-}(this, (function (exports) { 'use strict';
+    typeof define === 'function' && define.amd ? define(['exports'], factory) :
+      (factory((global.DICOMwebClient = {})));
+}(this, (function (exports) {
+  'use strict';
 
   function _typeof(obj) {
     "@babel/helpers - typeof";
@@ -366,7 +367,7 @@
    * debugLog is a function that can be called with console.log arguments, and will
    * be conditionally displayed, only when debug logging is enabled.
    */
-  var debugLog = function debugLog() {};
+  var debugLog = function debugLog() { };
 
   /**
    * @typedef { import("../types/types").InstanceMetadata } InstanceMetadata
@@ -488,7 +489,7 @@
         var debugLevel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
         var debugLogFunction = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
         this.debugLevel = !!debugLevel;
-        debugLog = debugLogFunction || debugLevel ? console.log : function () {};
+        debugLog = debugLogFunction || debugLevel ? console.log : function () { };
       }
       /**
        * Gets debug flag
@@ -710,11 +711,11 @@
           }
 
           // Add withCredentials to request if needed
-          if ('withCredentials' in options) {
-            if (options.withCredentials) {
-              request.withCredentials = true;
-            }
-          }
+          //if ('withCredentials' in options) {
+          //if (options.withCredentials) {
+          request.withCredentials = true;
+          //}
+          //}
           if ('data' in options) {
             request.send(options.data);
           } else {
