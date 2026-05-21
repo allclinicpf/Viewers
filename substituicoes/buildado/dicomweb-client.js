@@ -1,9 +1,8 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-    typeof define === 'function' && define.amd ? define(['exports'], factory) :
-      (factory((global.DICOMwebClient = {})));
-}(this, (function (exports) {
-  'use strict';
+  typeof define === 'function' && define.amd ? define(['exports'], factory) :
+  (factory((global.DICOMwebClient = {})));
+}(this, (function (exports) { 'use strict';
 
   function _typeof(obj) {
     "@babel/helpers - typeof";
@@ -367,7 +366,7 @@
    * debugLog is a function that can be called with console.log arguments, and will
    * be conditionally displayed, only when debug logging is enabled.
    */
-  var debugLog = function debugLog() { };
+  var debugLog = function debugLog() {};
 
   /**
    * @typedef { import("../types/types").InstanceMetadata } InstanceMetadata
@@ -489,7 +488,7 @@
         var debugLevel = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
         var debugLogFunction = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
         this.debugLevel = !!debugLevel;
-        debugLog = debugLogFunction || debugLevel ? console.log : function () { };
+        debugLog = debugLogFunction || debugLevel ? console.log : function () {};
       }
       /**
        * Gets debug flag
@@ -716,6 +715,7 @@
           request.withCredentials = true;
           //}
           //}
+
           if ('data' in options) {
             request.send(options.data);
           } else {
@@ -1790,8 +1790,7 @@
         var url = options.BulkDataURI;
         var mediaTypes = options.mediaTypes,
           byteRange = options.byteRange;
-        var _options$withCredenti3 = options.withCredentials,
-          withCredentials = true; //_options$withCredenti3 === void 0 ? false : _options$withCredenti3;
+        var withCredentials = true;
         var _options$progressCall3 = options.progressCallback,
           progressCallback = _options$progressCall3 === void 0 ? false : _options$progressCall3;
         if (this.singlepart.indexOf('bulkdata') !== -1) {
@@ -1836,8 +1835,8 @@
         var headers = {
           'Content-Type': "multipart/related; type=\"application/dicom\"; boundary=\"".concat(boundary, "\"")
         };
-        var _options$withCredenti4 = options.withCredentials,
-          withCredentials = _options$withCredenti4 === void 0 ? false : _options$withCredenti4;
+        var _options$withCredenti3 = options.withCredentials,
+          withCredentials = _options$withCredenti3 === void 0 ? false : _options$withCredenti3;
         return this._httpPost(url, headers, data, options.progressCallback, withCredentials, options.request);
       }
     }], [{
