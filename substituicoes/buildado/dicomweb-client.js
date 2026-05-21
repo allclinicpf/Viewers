@@ -1791,7 +1791,7 @@
         var mediaTypes = options.mediaTypes,
           byteRange = options.byteRange;
         var _options$withCredenti3 = options.withCredentials,
-          withCredentials = _options$withCredenti3 === void 0 ? false : _options$withCredenti3;
+          withCredentials = true; //_options$withCredenti3 === void 0 ? false : _options$withCredenti3;
         var _options$progressCall3 = options.progressCallback,
           progressCallback = _options$progressCall3 === void 0 ? false : _options$progressCall3;
         if (this.singlepart.indexOf('bulkdata') !== -1) {
